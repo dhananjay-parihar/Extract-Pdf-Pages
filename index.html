@@ -474,6 +474,52 @@
             box-shadow:
                 0 0 0 3px rgba(66, 133, 244, 0.15);
         }
+        .remove-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.remove-box button {
+    background: #f1f3f4;
+    color: #202124;
+    border: 1px solid #dadce0;
+}
+
+.remove-box button.active-remove {
+    background: #d93025;
+    color: #fff;
+    border-color: #d93025;
+}
+
+.remove-box input {
+    width: 150px;
+    height: 44px;
+    border: 1px solid #dadce0;
+    border-radius: 12px;
+    padding: 0 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.remove-box input:focus {
+    border-color: #d93025;
+    outline: none;
+}
+
+#removeDownloadBtn {
+    background: #d93025;
+    color: #fff;
+    border: none;
+}
+
+.page-card.to-remove {
+    opacity: .35;
+    filter: grayscale(1);
+    outline: 3px solid #d93025;
+    outline-offset: -3px;
+}
     </style>
 </head>
 
@@ -531,6 +577,12 @@
                         </button>
 
                     </div>
+                    <div class="remove-box">
+    <button id="removeOddBtn">Remove Odd</button>
+    <button id="removeEvenBtn">Remove Even</button>
+    <input type="text" id="removeInput" placeholder="e.g. 1,3,5-8" />
+    <button id="removeDownloadBtn">Remove &amp; Download</button>
+</div>
 
                 </div>
 
@@ -1209,6 +1261,139 @@
                 customSplitInput.value
             );
         });
+
+        /* ---------- REMOVE PAGES ---------- */
+
+const removeOddBtn = document.getElementById('removeOddBtn');
+const removeEvenBtn = document.getElementById('removeEvenBtn');
+const removeInput = document.getElementById('removeInput');
+const removeDownloadBtn = document.getElementById('removeDownloadBtn');
+
+let pagesToRemove = new Set();
+
+function parsePageInput(text) {
+    const result = new Set();
+
+    text.split(',').forEach(part => {
+        const p = part.trim();
+        if (!p) return;
+
+        const rangeMatch = p.match(/^(\d+)\s*-\s*(\d+)$/);
+
+        if (rangeMatch) {
+            let a = parseInt(rangeMatch[1]);
+            let b = parseInt(rangeMatch[2]);
+            if (a > b) [a, b] = [b, a];
+
+            for (let i = a; i <= b; i++) {
+                if (i >= 1 && i <= totalPages) result.add(i);
+            }
+        } else if (/^\d+$/.test(p)) {
+            const n = parseInt(p);
+            if (n >= 1 && n <= totalPages) result.add(n);
+        }
+    });
+
+    return result;
+}
+
+function updateRemovePreview() {
+    document.querySelectorAll('.page-wrapper').forEach((wrapper, i) => {
+        wrapper
+            .querySelector('.page-card')
+            .classList.toggle('to-remove', pagesToRemove.has(i + 1));
+    });
+}
+
+function setRemoveSet(set, activeBtn = null) {
+    pagesToRemove = set;
+
+    removeOddBtn.classList.toggle('active-remove', activeBtn === removeOddBtn);
+    removeEvenBtn.classList.toggle('active-remove', activeBtn === removeEvenBtn);
+
+    updateRemovePreview();
+}
+
+function resetRemove() {
+    removeInput.value = '';
+    setRemoveSet(new Set());
+}
+
+removeOddBtn.addEventListener('click', () => {
+    if (!totalPages) return;
+
+    const set = new Set();
+    for (let i = 1; i <= totalPages; i += 2) set.add(i);
+
+    removeInput.value = '';
+    setRemoveSet(set, removeOddBtn);
+});
+
+removeEvenBtn.addEventListener('click', () => {
+    if (!totalPages) return;
+
+    const set = new Set();
+    for (let i = 2; i <= totalPages; i += 2) set.add(i);
+
+    removeInput.value = '';
+    setRemoveSet(set, removeEvenBtn);
+});
+
+removeInput.addEventListener('input', () => {
+    setRemoveSet(parsePageInput(removeInput.value));
+});
+
+removeDownloadBtn.addEventListener('click', async () => {
+
+    if (!pdfArrayBuffer) {
+        alert('Upload PDF first');
+        return;
+    }
+
+    if (pagesToRemove.size === 0) {
+        alert('Choose pages to remove (Odd, Even, or type page numbers)');
+        return;
+    }
+
+    if (pagesToRemove.size >= totalPages) {
+        alert('You cannot remove all pages');
+        return;
+    }
+
+    setLoading(removeDownloadBtn, 'Removing');
+    showStatus('Removing selected pages...');
+
+    try {
+        const src = await PDFLib.PDFDocument.load(pdfArrayBuffer);
+        const out = await PDFLib.PDFDocument.create();
+
+        const keepIndexes = [];
+        for (let i = 1; i <= totalPages; i++) {
+            if (!pagesToRemove.has(i)) keepIndexes.push(i - 1);
+        }
+
+        const copied = await out.copyPages(src, keepIndexes);
+        copied.forEach(p => out.addPage(p));
+
+        const bytes = await out.save();
+
+        const fileName = pdfInput.files[0].name.replace(/\.[^/.]+$/, '');
+
+        saveAs(
+            new Blob([bytes], { type: 'application/pdf' }),
+            `${fileName}_removed.pdf`
+        );
+
+        showStatus(`Done. ${pagesToRemove.size} page(s) removed.`);
+
+    } catch (err) {
+        console.error(err);
+        alert('Something went wrong');
+    } finally {
+        resetButton(removeDownloadBtn);
+        hideStatus();
+    }
+});
         downloadBtn.addEventListener('click', async () => {
 
             if (!pdfArrayBuffer) {
