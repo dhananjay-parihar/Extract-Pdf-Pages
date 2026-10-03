@@ -47,15 +47,11 @@
             width: 100%;
             background: #fff;
             border-radius: 18px;
-
             padding: 14px 18px;
-
             display: flex;
             flex-direction: column;
             gap: 14px;
-
-            box-shadow:
-                0 2px 10px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
         }
 
         .header {
@@ -78,12 +74,9 @@
         .upload-box {
             min-width: 320px;
             flex: 1;
-
             border: 1.5px dashed #d2d6dc;
             border-radius: 14px;
-
             padding: 12px;
-
             background: #fafafa;
         }
 
@@ -110,13 +103,10 @@
 
         .file-info {
             min-width: 260px;
-
             padding: 12px 14px;
-
             background: #f8f9fb;
             border: 1px solid #e5e7eb;
             border-radius: 14px;
-
             font-size: 13px;
             line-height: 1.5;
         }
@@ -125,19 +115,16 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         button {
             border: none;
             border-radius: 12px;
-
             padding: 12px 16px;
-
             font-size: 13px;
             font-weight: 700;
-
             cursor: pointer;
-
             transition: .18s ease;
         }
 
@@ -155,35 +142,25 @@
             color: #fff;
         }
 
+        #singlePdfBtn {
+            background: #34A853;
+            color: #fff;
+        }
+
         #clearBtn {
             background: #fce8e6;
             color: #d93025;
         }
 
         #selectedSplits {
-            background: #f7f8fa;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 10px;
-            min-height: 70px;
-            font-size: 12px;
-            overflow: auto;
-        }
-
-        #selectedSplits {
             width: 250px;
-
             height: 100%;
-
             background: #fff;
             border-radius: 16px;
             border: 1px solid #e5e7eb;
-
             padding: 12px;
             overflow: auto;
-
             font-size: 12px;
-
             box-shadow:
                 0 1px 3px rgba(0, 0, 0, 0.08),
                 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -223,7 +200,6 @@
             border-radius: 16px;
             overflow: auto;
             position: relative;
-
             box-shadow:
                 0 1px 3px rgba(0, 0, 0, 0.08),
                 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -262,7 +238,8 @@
                 border .25s ease,
                 box-shadow .25s ease,
                 background .25s ease,
-                transform .2s ease;
+                transform .2s ease,
+                opacity .2s ease;
             background: #fff;
             border: 1px solid #e5e7eb;
             border-radius: 12px;
@@ -272,6 +249,13 @@
 
         .page-card:hover {
             transform: translateY(-2px);
+        }
+
+        .page-card.to-remove {
+            opacity: .35;
+            filter: grayscale(1);
+            outline: 3px solid #d93025;
+            outline-offset: -3px;
         }
 
         .page-header {
@@ -318,7 +302,6 @@
         }
 
         @media(max-width:900px) {
-
             .main {
                 flex-direction: column;
             }
@@ -352,13 +335,10 @@
 
         .zoom-box {
             min-width: 260px;
-
             display: flex;
             align-items: center;
             gap: 12px;
-
             padding: 12px 14px;
-
             background: #f8f9fb;
             border: 1px solid #e5e7eb;
             border-radius: 14px;
@@ -407,10 +387,6 @@
             background: #e8f0fe;
         }
 
-        button:hover {
-            transform: translateY(-1px);
-        }
-
         .custom-split {
             display: flex;
             align-items: center;
@@ -420,12 +396,9 @@
         .custom-split input {
             width: 80px;
             height: 44px;
-
             border: 1px solid #dadce0;
             border-radius: 12px;
-
             padding: 0 12px;
-
             font-size: 13px;
             font-weight: 600;
         }
@@ -471,55 +444,50 @@
             background: #4285F4;
             color: #fff;
             border-color: #4285F4;
-            box-shadow:
-                0 0 0 3px rgba(66, 133, 244, 0.15);
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.15);
         }
+
+        /* REMOVE PAGES */
+
         .remove-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
 
-.remove-box button {
-    background: #f1f3f4;
-    color: #202124;
-    border: 1px solid #dadce0;
-}
+        .remove-box button {
+            background: #f1f3f4;
+            color: #202124;
+            border: 1px solid #dadce0;
+        }
 
-.remove-box button.active-remove {
-    background: #d93025;
-    color: #fff;
-    border-color: #d93025;
-}
+        .remove-box button.active-remove {
+            background: #d93025;
+            color: #fff;
+            border-color: #d93025;
+        }
 
-.remove-box input {
-    width: 150px;
-    height: 44px;
-    border: 1px solid #dadce0;
-    border-radius: 12px;
-    padding: 0 12px;
-    font-size: 13px;
-    font-weight: 600;
-}
+        .remove-box input {
+            width: 150px;
+            height: 44px;
+            border: 1px solid #dadce0;
+            border-radius: 12px;
+            padding: 0 12px;
+            font-size: 13px;
+            font-weight: 600;
+        }
 
-.remove-box input:focus {
-    border-color: #d93025;
-    outline: none;
-}
+        .remove-box input:focus {
+            border-color: #d93025;
+            outline: none;
+        }
 
-#removeDownloadBtn {
-    background: #d93025;
-    color: #fff;
-    border: none;
-}
-
-.page-card.to-remove {
-    opacity: .35;
-    filter: grayscale(1);
-    outline: 3px solid #d93025;
-    outline-offset: -3px;
-}
+        #removeDownloadBtn {
+            background: #d93025;
+            color: #fff;
+            border: none;
+        }
     </style>
 </head>
 
@@ -544,13 +512,9 @@
                 <div class="file-info" id="fileInfo"></div>
 
                 <div class="zoom-box">
-
                     <span>Zoom</span>
-
                     <input type="range" id="zoomSlider" min="120" max="420" value="220" />
-
                     <span id="zoomValue">220px</span>
-
                 </div>
 
             </div>
@@ -560,42 +524,27 @@
 
                 <div class="auto-split-box">
 
-                    <button id="oddSplitBtn">
-                        Odd
-                    </button>
-
-                    <button id="evenSplitBtn">
-                        Even
-                    </button>
+                    <button id="oddSplitBtn">Odd</button>
+                    <button id="evenSplitBtn">Even</button>
 
                     <div class="custom-split">
-
                         <input type="number" id="customSplitInput" min="1" placeholder="N" />
-
-                        <button id="customSplitBtn">
-                            Split Every N
-                        </button>
-
+                        <button id="customSplitBtn">Split Every N</button>
                     </div>
-                    <div class="remove-box">
-    <button id="removeOddBtn">Remove Odd</button>
-    <button id="removeEvenBtn">Remove Even</button>
-    <input type="text" id="removeInput" placeholder="e.g. 1,3,5-8" />
-    <button id="removeDownloadBtn">Remove &amp; Download</button>
-</div>
 
                 </div>
 
+                <div class="remove-box">
+                    <button id="removeOddBtn">Remove Odd</button>
+                    <button id="removeEvenBtn">Remove Even</button>
+                    <input type="text" id="removeInput" placeholder="e.g. 1,3,5-8" />
+                    <button id="removeDownloadBtn">Remove &amp; Download</button>
+                </div>
+
                 <div class="controls">
-
-                    <button id="downloadBtn">
-                        Download ZIP
-                    </button>
-
-                    <button id="clearBtn">
-                        Remove PDF
-                    </button>
-
+                    <button id="singlePdfBtn">Download Single PDF</button>
+                    <button id="downloadBtn">Download ZIP</button>
+                    <button id="clearBtn">Remove PDF</button>
                 </div>
 
             </div>
@@ -644,31 +593,27 @@
         const fileInfo = document.getElementById('fileInfo');
         const selectedSplitsBox = document.getElementById('selectedSplits');
         const downloadBtn = document.getElementById('downloadBtn');
+        const singlePdfBtn = document.getElementById('singlePdfBtn');
         const clearBtn = document.getElementById('clearBtn');
         const progressBar = document.getElementById('progressBar');
         const statusBox = document.getElementById('statusBox');
-        const zoomSlider =
-            document.getElementById('zoomSlider');
+        const zoomSlider = document.getElementById('zoomSlider');
+        const zoomValue = document.getElementById('zoomValue');
+        const oddSplitBtn = document.getElementById('oddSplitBtn');
+        const evenSplitBtn = document.getElementById('evenSplitBtn');
+        const customSplitBtn = document.getElementById('customSplitBtn');
+        const customSplitInput = document.getElementById('customSplitInput');
 
-        const zoomValue =
-            document.getElementById('zoomValue');
-
-        const oddSplitBtn =
-            document.getElementById('oddSplitBtn');
-
-        const evenSplitBtn =
-            document.getElementById('evenSplitBtn');
-
-        const customSplitBtn =
-            document.getElementById('customSplitBtn');
-
-        const customSplitInput =
-            document.getElementById('customSplitInput');
+        const removeOddBtn = document.getElementById('removeOddBtn');
+        const removeEvenBtn = document.getElementById('removeEvenBtn');
+        const removeInput = document.getElementById('removeInput');
+        const removeDownloadBtn = document.getElementById('removeDownloadBtn');
 
         let pdfArrayBuffer = null;
         let selectedSplits = [];
         let totalPages = 0;
         let pagePreviewSize = 220;
+        let pagesToRemove = new Set();
 
         function showStatus(message) {
             statusBox.style.display = 'block';
@@ -693,25 +638,16 @@
         }
 
         function formatSize(bytes) {
-
             if (bytes > 1024 * 1024) {
                 return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
             }
-
             return (bytes / 1024).toFixed(2) + ' KB';
         }
 
         function updateZoom(size) {
-
             pagePreviewSize = size;
-
-            document.documentElement.style.setProperty(
-                '--page-size',
-                size + 'px'
-            );
-
-            zoomValue.textContent =
-                size + 'px';
+            document.documentElement.style.setProperty('--page-size', size + 'px');
+            zoomValue.textContent = size + 'px';
         }
 
         function applyAutoSplit(type, value = null) {
@@ -721,63 +657,44 @@
             selectedSplits = [];
 
             if (type === 'odd') {
-
                 for (let i = 1; i < totalPages; i += 2) {
-
                     selectedSplits.push(i);
                 }
             }
 
             if (type === 'even') {
-
                 for (let i = 2; i < totalPages; i += 2) {
-
                     selectedSplits.push(i);
                 }
             }
 
             if (type === 'custom') {
-
                 const n = parseInt(value);
-
                 if (!n || n <= 0) return;
 
                 for (let i = n; i < totalPages; i += n) {
-
                     selectedSplits.push(i);
                 }
             }
 
             refreshSplitButtons();
-
             updateSplitDisplay();
         }
 
         function refreshSplitButtons() {
+            document.querySelectorAll('.split-btn').forEach(btn => {
+                const page = parseInt(btn.dataset.page);
 
-            document
-                .querySelectorAll('.split-btn')
-                .forEach(btn => {
-
-                    const page =
-                        parseInt(
-                            btn.dataset.page
-                        );
-
-                    if (selectedSplits.includes(page)) {
-
-                        btn.classList.add('active');
-
-                    } else {
-
-                        btn.classList.remove('active');
-                    }
-                });
+                if (selectedSplits.includes(page)) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
         }
+
         function getGroupColor(index) {
-
             const hue = (index * 67) % 360;
-
             return `hsl(${hue}, 75%, 52%)`;
         }
 
@@ -785,45 +702,31 @@
 
             if (selectedSplits.length === 0) {
 
-                selectedSplitsBox.innerHTML =
-                    'No split points selected.';
+                selectedSplitsBox.innerHTML = 'No split points selected.';
 
             } else {
 
                 selectedSplits.sort((a, b) => a - b);
 
                 const groups = [];
-
                 let start = 1;
 
                 selectedSplits.forEach(split => {
-
-                    groups.push({
-                        start,
-                        end: split
-                    });
-
+                    groups.push({ start, end: split });
                     start = split + 1;
                 });
 
-                groups.push({
-                    start,
-                    end: totalPages
-                });
+                groups.push({ start, end: totalPages });
 
-                const reversedGroups =
-                    [...groups].reverse();
+                const reversedGroups = [...groups].reverse();
 
                 selectedSplitsBox.innerHTML =
                     '<b>PDF Groups:</b><br><br>' +
 
                     reversedGroups.map((group, i) => {
 
-                        const originalIndex =
-                            groups.length - 1 - i;
-
-                        const color =
-                            getGroupColor(originalIndex);
+                        const originalIndex = groups.length - 1 - i;
+                        const color = getGroupColor(originalIndex);
 
                         return `
     <div class="group-item"
@@ -833,25 +736,21 @@
         "
     >
 
-<div class="group-info">
-
-    <span>
-        Group ${originalIndex + 1}
-        Page ${group.start}
-        to
-        Page ${group.end}
-    </span>
-
-</div>
+        <div class="group-info">
+            <span>
+                Group ${originalIndex + 1}
+                Page ${group.start}
+                to
+                Page ${group.end}
+            </span>
+        </div>
 
         <button
             class="group-download-btn"
             data-start="${group.start}"
             data-end="${group.end}"
             data-group="${originalIndex + 1}"
-            style="
-                background:${color};
-            "
+            style="background:${color};"
         >
             Download
         </button>
@@ -861,146 +760,84 @@
                     }).join('');
             }
 
+            document.querySelectorAll('.group-download-btn').forEach(button => {
 
-            document
-                .querySelectorAll('.group-download-btn')
-                .forEach(button => {
+                button.addEventListener('click', async () => {
 
-                    button.addEventListener(
-                        'click',
-                        async () => {
+                    const start = parseInt(button.dataset.start);
+                    const end = parseInt(button.dataset.end);
+                    const group = parseInt(button.dataset.group);
 
-                            const start =
-                                parseInt(
-                                    button.dataset.start
-                                );
+                    const original = button.innerHTML;
 
-                            const end =
-                                parseInt(
-                                    button.dataset.end
-                                );
+                    button.disabled = true;
+                    button.innerHTML = '<span class="loader"></span>Generating';
 
-                            const group =
-                                parseInt(
-                                    button.dataset.group
-                                );
-
-                            const original =
-                                button.innerHTML;
-
-                            button.disabled = true;
-
-                            button.innerHTML =
-                                '<span class="loader"></span>Generating';
-
-                            try {
-
-                                await downloadSingleGroup(
-                                    start,
-                                    end,
-                                    group
-                                );
-
-                            } finally {
-
-                                button.disabled = false;
-
-                                button.innerHTML = original;
-                            }
-                        }
-                    );
+                    try {
+                        await downloadSingleGroup(start, end, group);
+                    } finally {
+                        button.disabled = false;
+                        button.innerHTML = original;
+                    }
                 });
+            });
 
             updateVisualGroups();
         }
 
         function updateVisualGroups() {
 
-            const wrappers =
-                document.querySelectorAll('.page-wrapper');
+            const wrappers = document.querySelectorAll('.page-wrapper');
 
             wrappers.forEach(wrapper => {
+                const card = wrapper.querySelector('.page-card');
 
-                const card =
-                    wrapper.querySelector('.page-card');
-
-                card.style.border =
-                    '1px solid #e5e7eb';
-
-                card.style.boxShadow =
-                    '0 2px 6px rgba(0,0,0,0.06)';
-
+                card.style.border = '1px solid #e5e7eb';
+                card.style.boxShadow = '0 2px 6px rgba(0,0,0,0.06)';
                 card.style.background = '#fff';
             });
 
-            const splits =
-                [...selectedSplits].sort((a, b) => a - b);
+            const splits = [...selectedSplits].sort((a, b) => a - b);
 
             const groups = [];
-
             let start = 1;
 
             splits.forEach(split => {
-
-                groups.push({
-                    start,
-                    end: split
-                });
-
+                groups.push({ start, end: split });
                 start = split + 1;
             });
 
-            groups.push({
-                start,
-                end: totalPages
-            });
+            groups.push({ start, end: totalPages });
 
             groups.forEach((group, index) => {
+
                 const color = getGroupColor(index);
-
                 const groupNumber = index + 1;
-                for (
-                    let i = group.start;
-                    i <= group.end;
-                    i++
-                ) {
 
-                    const badge =
-                        document.getElementById(`badge-${i}`);
+                for (let i = group.start; i <= group.end; i++) {
+
+                    const badge = document.getElementById(`badge-${i}`);
 
                     if (badge) {
-
                         badge.textContent = `G${groupNumber}`;
-
                         badge.style.background = color;
                     }
-                    const wrapper = wrappers[i - 1];
 
+                    const wrapper = wrappers[i - 1];
                     if (!wrapper) continue;
 
-                    const card =
-                        wrapper.querySelector('.page-card');
+                    const card = wrapper.querySelector('.page-card');
 
-                    card.style.border =
-                        `3px solid ${color}`;
-
-                    card.style.boxShadow =
-                        `0 0 0 4px ${color}22`;
-
-                    card.style.background =
-                        `${color}08`;
+                    card.style.border = `3px solid ${color}`;
+                    card.style.boxShadow = `0 0 0 4px ${color}22`;
+                    card.style.background = `${color}08`;
                 }
             });
         }
 
         function range(start, end) {
-
             let length = end - start + 1;
-
-            return Array.from(
-                { length },
-                (_, i) => start + i - 1
-            );
+            return Array.from({ length }, (_, i) => start + i - 1);
         }
 
         async function renderPDF(arrayBuffer, file) {
@@ -1008,12 +845,10 @@
             pagesContainer.innerHTML = '';
 
             selectedSplits = [];
-
+            resetRemove();
             updateSplitDisplay();
 
-            const loadingTask =
-                pdfjsLib.getDocument({ data: arrayBuffer });
-
+            const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
             const pdf = await loadingTask.promise;
 
             totalPages = pdf.numPages;
@@ -1030,20 +865,15 @@
             for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
 
                 const page = await pdf.getPage(pageNum);
-
                 const viewport = page.getViewport({ scale: 1 });
 
                 const canvas = document.createElement('canvas');
-
                 const context = canvas.getContext('2d');
 
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
 
-                await page.render({
-                    canvasContext: context,
-                    viewport
-                }).promise;
+                await page.render({ canvasContext: context, viewport }).promise;
 
                 const wrapper = document.createElement('div');
                 wrapper.className = 'page-wrapper';
@@ -1068,31 +898,19 @@
 
                 if (pageNum < totalPages) {
 
-                    const splitBtn =
-                        document.createElement('button');
+                    const splitBtn = document.createElement('button');
 
                     splitBtn.className = 'split-btn';
-
                     splitBtn.dataset.page = pageNum;
-
-                    splitBtn.textContent =
-                        '✂ Split After Page ' + pageNum;
+                    splitBtn.textContent = '✂ Split After Page ' + pageNum;
 
                     splitBtn.addEventListener('click', () => {
 
                         if (selectedSplits.includes(pageNum)) {
-
-                            selectedSplits =
-                                selectedSplits.filter(
-                                    p => p !== pageNum
-                                );
-
+                            selectedSplits = selectedSplits.filter(p => p !== pageNum);
                             splitBtn.classList.remove('active');
-
                         } else {
-
                             selectedSplits.push(pageNum);
-
                             splitBtn.classList.add('active');
                         }
 
@@ -1118,91 +936,240 @@
 
                 allSplits.map(async (endPage, index) => {
 
-                    const startPage =
-                        index > 0
-                            ? allSplits[index - 1] + 1
-                            : 1;
+                    const startPage = index > 0 ? allSplits[index - 1] + 1 : 1;
 
-                    const pdfSrcDoc =
-                        await PDFLib.PDFDocument.load(
-                            pdfArrayBuffer
-                        );
+                    const pdfSrcDoc = await PDFLib.PDFDocument.load(pdfArrayBuffer);
+                    const pdfNewDoc = await PDFLib.PDFDocument.create();
 
-                    const pdfNewDoc =
-                        await PDFLib.PDFDocument.create();
-
-                    const copiedPages =
-                        await pdfNewDoc.copyPages(
-                            pdfSrcDoc,
-                            range(startPage, endPage)
-                        );
+                    const copiedPages = await pdfNewDoc.copyPages(
+                        pdfSrcDoc,
+                        range(startPage, endPage)
+                    );
 
                     copiedPages.forEach(page => {
                         pdfNewDoc.addPage(page);
                     });
 
-                    const newPdf =
-                        await pdfNewDoc.save();
+                    const newPdf = await pdfNewDoc.save();
 
                     zip.file(
                         `${fileName}_${startPage}-${endPage}.pdf`,
                         new Uint8Array(newPdf)
                     );
 
-                    progressBar.value =
-                        ((index + 1) / allSplits.length) * 100;
+                    progressBar.value = ((index + 1) / allSplits.length) * 100;
                 })
             );
 
             return zip;
         }
 
-        async function downloadSingleGroup(
-            startPage,
-            endPage,
-            groupNumber
-        ) {
+        async function downloadSingleGroup(startPage, endPage, groupNumber) {
 
-            const pdfSrcDoc =
-                await PDFLib.PDFDocument.load(
-                    pdfArrayBuffer
-                );
+            const pdfSrcDoc = await PDFLib.PDFDocument.load(pdfArrayBuffer);
+            const pdfNewDoc = await PDFLib.PDFDocument.create();
 
-            const pdfNewDoc =
-                await PDFLib.PDFDocument.create();
-
-            const copiedPages =
-                await pdfNewDoc.copyPages(
-                    pdfSrcDoc,
-                    range(startPage, endPage)
-                );
+            const copiedPages = await pdfNewDoc.copyPages(
+                pdfSrcDoc,
+                range(startPage, endPage)
+            );
 
             copiedPages.forEach(page => {
-
                 pdfNewDoc.addPage(page);
             });
 
-            const newPdf =
-                await pdfNewDoc.save();
+            const newPdf = await pdfNewDoc.save();
 
-            const fileName =
-                pdfInput.files[0].name.replace(
-                    /\.[^/.]+$/,
-                    ''
-                );
+            const fileName = pdfInput.files[0].name.replace(/\.[^/.]+$/, '');
 
             saveAs(
-                new Blob([newPdf], {
-                    type: 'application/pdf'
-                }),
+                new Blob([newPdf], { type: 'application/pdf' }),
                 `${fileName}_Group-${groupNumber}_${startPage}-${endPage}.pdf`
             );
         }
 
+        /* ---------- REMOVE PAGES ---------- */
+
+        function parsePageInput(text) {
+
+            const result = new Set();
+
+            text.split(',').forEach(part => {
+
+                const p = part.trim();
+                if (!p) return;
+
+                const rangeMatch = p.match(/^(\d+)\s*-\s*(\d+)$/);
+
+                if (rangeMatch) {
+                    let a = parseInt(rangeMatch[1]);
+                    let b = parseInt(rangeMatch[2]);
+                    if (a > b) [a, b] = [b, a];
+
+                    for (let i = a; i <= b; i++) {
+                        if (i >= 1 && i <= totalPages) result.add(i);
+                    }
+                } else if (/^\d+$/.test(p)) {
+                    const n = parseInt(p);
+                    if (n >= 1 && n <= totalPages) result.add(n);
+                }
+            });
+
+            return result;
+        }
+
+        function updateRemovePreview() {
+            document.querySelectorAll('.page-wrapper').forEach((wrapper, i) => {
+                wrapper
+                    .querySelector('.page-card')
+                    .classList.toggle('to-remove', pagesToRemove.has(i + 1));
+            });
+        }
+
+        function setRemoveSet(set, activeBtn = null) {
+
+            pagesToRemove = set;
+
+            removeOddBtn.classList.toggle('active-remove', activeBtn === removeOddBtn);
+            removeEvenBtn.classList.toggle('active-remove', activeBtn === removeEvenBtn);
+
+            updateRemovePreview();
+        }
+
+        function resetRemove() {
+            removeInput.value = '';
+            setRemoveSet(new Set());
+        }
+
+        async function buildPdfWithoutRemoved() {
+
+            const src = await PDFLib.PDFDocument.load(pdfArrayBuffer);
+            const out = await PDFLib.PDFDocument.create();
+
+            const keepIndexes = [];
+
+            for (let i = 1; i <= totalPages; i++) {
+                if (!pagesToRemove.has(i)) keepIndexes.push(i - 1);
+            }
+
+            const copied = await out.copyPages(src, keepIndexes);
+            copied.forEach(p => out.addPage(p));
+
+            const bytes = await out.save();
+
+            return { bytes, keptCount: keepIndexes.length };
+        }
+
+        removeOddBtn.addEventListener('click', () => {
+
+            if (!totalPages) return;
+
+            const set = new Set();
+            for (let i = 1; i <= totalPages; i += 2) set.add(i);
+
+            removeInput.value = '';
+            setRemoveSet(set, removeOddBtn);
+        });
+
+        removeEvenBtn.addEventListener('click', () => {
+
+            if (!totalPages) return;
+
+            const set = new Set();
+            for (let i = 2; i <= totalPages; i += 2) set.add(i);
+
+            removeInput.value = '';
+            setRemoveSet(set, removeEvenBtn);
+        });
+
+        removeInput.addEventListener('input', () => {
+            setRemoveSet(parsePageInput(removeInput.value));
+        });
+
+        removeDownloadBtn.addEventListener('click', async () => {
+
+            if (!pdfArrayBuffer) {
+                alert('Upload PDF first');
+                return;
+            }
+
+            if (pagesToRemove.size === 0) {
+                alert('Choose pages to remove (Odd, Even, or type page numbers)');
+                return;
+            }
+
+            if (pagesToRemove.size >= totalPages) {
+                alert('You cannot remove all pages');
+                return;
+            }
+
+            setLoading(removeDownloadBtn, 'Removing');
+            showStatus('Removing selected pages...');
+
+            try {
+                const { bytes } = await buildPdfWithoutRemoved();
+
+                const fileName = pdfInput.files[0].name.replace(/\.[^/.]+$/, '');
+
+                saveAs(
+                    new Blob([bytes], { type: 'application/pdf' }),
+                    `${fileName}_removed.pdf`
+                );
+
+                showStatus(`Done. ${pagesToRemove.size} page(s) removed.`);
+
+            } catch (err) {
+                console.error(err);
+                alert('Something went wrong');
+            } finally {
+                resetButton(removeDownloadBtn);
+                hideStatus();
+            }
+        });
+
+        /* ---------- DOWNLOAD SINGLE PDF ---------- */
+
+        singlePdfBtn.addEventListener('click', async () => {
+
+            if (!pdfArrayBuffer) {
+                alert('Upload PDF first');
+                return;
+            }
+
+            if (pagesToRemove.size >= totalPages) {
+                alert('You cannot remove all pages');
+                return;
+            }
+
+            setLoading(singlePdfBtn, 'Creating PDF');
+            showStatus('Creating single PDF...');
+
+            try {
+                const { bytes, keptCount } = await buildPdfWithoutRemoved();
+
+                const fileName = pdfInput.files[0].name.replace(/\.[^/.]+$/, '');
+
+                saveAs(
+                    new Blob([bytes], { type: 'application/pdf' }),
+                    `${fileName}_final.pdf`
+                );
+
+                showStatus(`Downloaded single PDF (${keptCount} pages)`);
+
+            } catch (err) {
+                console.error(err);
+                alert('Something went wrong');
+            } finally {
+                resetButton(singlePdfBtn);
+                hideStatus();
+            }
+        });
+
+        /* ---------- EVENTS ---------- */
+
         pdfInput.addEventListener('change', async (e) => {
 
             const file = e.target.files[0];
-
             if (!file) return;
 
             pdfArrayBuffer = await file.arrayBuffer();
@@ -1211,10 +1178,8 @@
         });
 
         zoomSlider.addEventListener('input', (e) => {
-
             updateZoom(e.target.value);
         });
-
 
         function setActiveSplitButton(type) {
 
@@ -1222,230 +1187,58 @@
             evenSplitBtn.classList.remove('active-split');
             customSplitBtn.classList.remove('active-split');
 
-            if (type === 'odd') {
-
-                oddSplitBtn.classList.add('active-split');
-            }
-
-            if (type === 'even') {
-
-                evenSplitBtn.classList.add('active-split');
-            }
-
-            if (type === 'custom') {
-
-                customSplitBtn.classList.add('active-split');
-            }
+            if (type === 'odd') oddSplitBtn.classList.add('active-split');
+            if (type === 'even') evenSplitBtn.classList.add('active-split');
+            if (type === 'custom') customSplitBtn.classList.add('active-split');
         }
 
         oddSplitBtn.addEventListener('click', () => {
-
             setActiveSplitButton('odd');
-
             applyAutoSplit('odd');
         });
 
         evenSplitBtn.addEventListener('click', () => {
-
             setActiveSplitButton('even');
-
             applyAutoSplit('even');
         });
 
         customSplitBtn.addEventListener('click', () => {
-
             setActiveSplitButton('custom');
-
-            applyAutoSplit(
-                'custom',
-                customSplitInput.value
-            );
+            applyAutoSplit('custom', customSplitInput.value);
         });
 
-        /* ---------- REMOVE PAGES ---------- */
-
-const removeOddBtn = document.getElementById('removeOddBtn');
-const removeEvenBtn = document.getElementById('removeEvenBtn');
-const removeInput = document.getElementById('removeInput');
-const removeDownloadBtn = document.getElementById('removeDownloadBtn');
-
-let pagesToRemove = new Set();
-
-function parsePageInput(text) {
-    const result = new Set();
-
-    text.split(',').forEach(part => {
-        const p = part.trim();
-        if (!p) return;
-
-        const rangeMatch = p.match(/^(\d+)\s*-\s*(\d+)$/);
-
-        if (rangeMatch) {
-            let a = parseInt(rangeMatch[1]);
-            let b = parseInt(rangeMatch[2]);
-            if (a > b) [a, b] = [b, a];
-
-            for (let i = a; i <= b; i++) {
-                if (i >= 1 && i <= totalPages) result.add(i);
-            }
-        } else if (/^\d+$/.test(p)) {
-            const n = parseInt(p);
-            if (n >= 1 && n <= totalPages) result.add(n);
-        }
-    });
-
-    return result;
-}
-
-function updateRemovePreview() {
-    document.querySelectorAll('.page-wrapper').forEach((wrapper, i) => {
-        wrapper
-            .querySelector('.page-card')
-            .classList.toggle('to-remove', pagesToRemove.has(i + 1));
-    });
-}
-
-function setRemoveSet(set, activeBtn = null) {
-    pagesToRemove = set;
-
-    removeOddBtn.classList.toggle('active-remove', activeBtn === removeOddBtn);
-    removeEvenBtn.classList.toggle('active-remove', activeBtn === removeEvenBtn);
-
-    updateRemovePreview();
-}
-
-function resetRemove() {
-    removeInput.value = '';
-    setRemoveSet(new Set());
-}
-
-removeOddBtn.addEventListener('click', () => {
-    if (!totalPages) return;
-
-    const set = new Set();
-    for (let i = 1; i <= totalPages; i += 2) set.add(i);
-
-    removeInput.value = '';
-    setRemoveSet(set, removeOddBtn);
-});
-
-removeEvenBtn.addEventListener('click', () => {
-    if (!totalPages) return;
-
-    const set = new Set();
-    for (let i = 2; i <= totalPages; i += 2) set.add(i);
-
-    removeInput.value = '';
-    setRemoveSet(set, removeEvenBtn);
-});
-
-removeInput.addEventListener('input', () => {
-    setRemoveSet(parsePageInput(removeInput.value));
-});
-
-removeDownloadBtn.addEventListener('click', async () => {
-
-    if (!pdfArrayBuffer) {
-        alert('Upload PDF first');
-        return;
-    }
-
-    if (pagesToRemove.size === 0) {
-        alert('Choose pages to remove (Odd, Even, or type page numbers)');
-        return;
-    }
-
-    if (pagesToRemove.size >= totalPages) {
-        alert('You cannot remove all pages');
-        return;
-    }
-
-    setLoading(removeDownloadBtn, 'Removing');
-    showStatus('Removing selected pages...');
-
-    try {
-        const src = await PDFLib.PDFDocument.load(pdfArrayBuffer);
-        const out = await PDFLib.PDFDocument.create();
-
-        const keepIndexes = [];
-        for (let i = 1; i <= totalPages; i++) {
-            if (!pagesToRemove.has(i)) keepIndexes.push(i - 1);
-        }
-
-        const copied = await out.copyPages(src, keepIndexes);
-        copied.forEach(p => out.addPage(p));
-
-        const bytes = await out.save();
-
-        const fileName = pdfInput.files[0].name.replace(/\.[^/.]+$/, '');
-
-        saveAs(
-            new Blob([bytes], { type: 'application/pdf' }),
-            `${fileName}_removed.pdf`
-        );
-
-        showStatus(`Done. ${pagesToRemove.size} page(s) removed.`);
-
-    } catch (err) {
-        console.error(err);
-        alert('Something went wrong');
-    } finally {
-        resetButton(removeDownloadBtn);
-        hideStatus();
-    }
-});
         downloadBtn.addEventListener('click', async () => {
 
             if (!pdfArrayBuffer) {
-
                 alert('Upload PDF first');
-
                 return;
             }
 
             if (selectedSplits.length === 0) {
-
                 alert('Select at least one split point');
-
                 return;
             }
 
             setLoading(downloadBtn, 'Creating ZIP');
-
             showStatus('Generating split PDFs...');
 
             try {
+                const fileName = pdfInput.files[0].name.replace(/\.[^/.]+$/, '');
 
-                const fileName =
-                    pdfInput.files[0].name.replace(
-                        /\.[^/.]+$/,
-                        ''
-                    );
+                const zip = await createZip(selectedSplits, fileName);
 
-                const zip =
-                    await createZip(selectedSplits, fileName);
-
-                const content =
-                    await zip.generateAsync({
-                        type: 'blob'
-                    });
+                const content = await zip.generateAsync({ type: 'blob' });
 
                 saveAs(content, fileName + '.zip');
 
                 showStatus('ZIP downloaded successfully');
 
             } catch (err) {
-
                 console.error(err);
-
                 alert('Something went wrong');
-
             } finally {
-
                 progressBar.value = 0;
-
                 resetButton(downloadBtn);
-
                 hideStatus();
             }
         });
@@ -1453,28 +1246,21 @@ removeDownloadBtn.addEventListener('click', async () => {
         clearBtn.addEventListener('click', () => {
 
             pdfInput.value = '';
-
             pdfArrayBuffer = null;
-
             selectedSplits = [];
-
             totalPages = 0;
 
             pagesContainer.innerHTML = '';
-
             placeholder.style.display = 'flex';
-
             fileInfo.style.display = 'none';
 
-            selectedSplitsBox.innerHTML =
-                'No split points selected.';
+            selectedSplitsBox.innerHTML = 'No split points selected.';
+
+            resetRemove();
 
             progressBar.value = 0;
             updateZoom(220);
         });
-
-
-
     </script>
 
 </body>
